@@ -4,7 +4,7 @@ import { ReturnTimeOnInvestmentTable } from './components/ReturnTimeOnInvestment
 export default function Person() {
   return (
     <>
-      <div className="max-h-screen w-full space-y-4">
+      <div className="max-h-screen w-full space-y-16">
         <CalcReturnTimeOnInvestmentForm />
 
         <ReturnTimeOnInvestmentTable />

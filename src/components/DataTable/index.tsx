@@ -209,7 +209,7 @@ export function DataTable<TData, TValue>({
                     colSpan={columns.length}
                     className="h-24 text-center"
                   >
-                    Sem resultados.
+                    Insira os valores para realizar o cálculo.
                   </Table.Cell>
                 </Table.Row>
               )}

@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils'
 import { fontLogo, fontSans } from '@/styles/fonts'
 
 export const metadata: Metadata = {
-  title: 'Defense Access',
+  title: 'Solar Plus',
 }
 
 export default function RootLayout({

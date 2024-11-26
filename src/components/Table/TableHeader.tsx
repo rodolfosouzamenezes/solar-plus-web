@@ -7,7 +7,7 @@ export const TableHeader = forwardRef<
 >(({ className, ...props }, ref) => (
   <thead
     ref={ref}
-    className={cn('bg-primary-foreground [&_tr]:border-b', className)}
+    className={cn('bg-primary/5 [&_tr]:border-b', className)}
     {...props}
   />
 ))

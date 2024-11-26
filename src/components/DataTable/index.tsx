@@ -37,6 +37,7 @@ interface DataTableProps<TData, TValue> extends ComponentProps<'div'> {
   setConditionalRender?: (conditionalRender: boolean) => void
   conditionalRender?: boolean
   search?: boolean
+  hideColumns?: boolean
   containerClassName?: string
 }
 
@@ -48,6 +49,7 @@ export function DataTable<TData, TValue>({
   defaultHiddenColumns,
   fetchData,
   search = true,
+  hideColumns = true,
   conditionalRender,
   setConditionalRender,
   containerClassName,
@@ -109,10 +111,12 @@ export function DataTable<TData, TValue>({
     <div className={cn(['w-full', containerClassName])}>
       <div className="flex py-4">
         <div className="mr-auto flex space-x-2">
-          <DataTableHideColumns
-            table={table}
-            defaultHiddenColumns={defaultHiddenColumns}
-          />
+          {hideColumns && (
+            <DataTableHideColumns
+              table={table}
+              defaultHiddenColumns={defaultHiddenColumns}
+            />
+          )}
           {left && left(table)}
         </div>
         <div className="flex space-x-2">

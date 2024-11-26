@@ -1,6 +1,10 @@
 import { WithChildren } from '@/@types/general'
-import { PersonContextProvider } from '@/contexts/PersonContext'
+import { ReturnTimeOnInvestmentContextProvider } from '@/contexts/ReturnTimeOnInvestmentContext'
 
 export function PersonProviders({ children }: WithChildren) {
-  return <PersonContextProvider>{children}</PersonContextProvider>
+  return (
+    <ReturnTimeOnInvestmentContextProvider>
+      {children}
+    </ReturnTimeOnInvestmentContextProvider>
+  )
 }

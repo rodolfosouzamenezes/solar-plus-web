@@ -1,6 +1,5 @@
 'use client'
 
-import { AuthContextProvider } from '@/contexts/AuthContext'
 import { ThemeProvider } from 'next-themes'
 import { ReactNode, useEffect, useState } from 'react'
 
@@ -16,8 +15,8 @@ export function Providers({ children }: { children: ReactNode }) {
   }
 
   return (
-    <ThemeProvider enableSystem attribute="class">
-      <AuthContextProvider>{children}</AuthContextProvider>
+    <ThemeProvider enableSystem attribute="class" defaultTheme="light">
+      <>{children}</>
     </ThemeProvider>
   )
 }

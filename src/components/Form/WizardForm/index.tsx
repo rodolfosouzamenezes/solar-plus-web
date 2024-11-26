@@ -1,3 +1,5 @@
+'use client'
+
 import { Tabs, TabsContent, TabsList } from '@/components/ui/tabs'
 import { WizardFormStepTrigger as StepTrigger } from './StepTrigger'
 import { createContext, useContext, useState, type ReactNode } from 'react'

@@ -19,19 +19,20 @@ export function CalcReturnTimeOnInvestmentFormFields() {
         {...register('initialExpanse')}
       />
       <Input
-        label="Custos Mensais"
+        label="Custo mensal sem a placa"
         placeholder="R$ 0,00"
-        info="Custos com manutenção..."
-        error={errors?.mensalExpanse?.message}
+        info="Custos sem a placa solar"
+        error={errors?.monthlyCostWithoutThePlate?.message}
         mask="currency"
-        {...register('mensalExpanse')}
+        {...register('monthlyCostWithoutThePlate')}
       />
       <Input
-        label="Economia mensal"
+        label="Custo mensal com a placa"
         placeholder="R$ 0,00"
-        error={errors?.mensalEconomy?.message}
+        info="Novos custos com a placa solar"
+        error={errors?.monthlyCostWithThePlate?.message}
         mask="currency"
-        {...register('mensalEconomy')}
+        {...register('monthlyCostWithThePlate')}
       />
     </div>
   )

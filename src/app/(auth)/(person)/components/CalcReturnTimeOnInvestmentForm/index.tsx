@@ -9,6 +9,7 @@ import { CalcReturnTimeOnInvestmentFormFields } from './Fields'
 import { toast } from 'react-toastify'
 import { useReturnTimeOnInvestment } from '@/contexts/ReturnTimeOnInvestmentContext'
 import { useForm } from 'react-hook-form'
+import { IReturnTimeOnInvestment } from '@/interfaces/returnTimeOnInvestment'
 
 export function CalcReturnTimeOnInvestmentForm() {
   const formMethods = useForm<CalcReturnTimeOnInvestmentFormFieldsType>({
@@ -18,24 +19,25 @@ export function CalcReturnTimeOnInvestmentForm() {
   const { setReturnTimeOnInvestmentList } = useReturnTimeOnInvestment()
 
   const onSubmit = async (data: CalcReturnTimeOnInvestmentFormFieldsType) => {
-    const mensalExpanse = Number(data.mensalExpanse)
     const initialExpanse = Number(data.initialExpanse)
-    const mensalEconomy = Number(data.mensalEconomy)
+    const monthlyCostWithoutThePlate = Number(data.monthlyCostWithoutThePlate)
+    const monthlyCostWithThePlate = Number(data.monthlyCostWithThePlate)
 
-    const returnTimeOnInvestmentList = []
+    const returnTimeOnInvestmentList: IReturnTimeOnInvestment[] = []
     let year = 1
-    let returnValue = 0
+    const returnValue = 0
 
     while (year <= 100) {
-      const yearExpanse = initialExpanse + mensalExpanse * 12 * year
-      const yearEconomy = mensalEconomy * 12 * year
-      returnValue = yearEconomy - yearExpanse
+      const yearExpanseWithThePlate =
+        initialExpanse + monthlyCostWithThePlate * 12 * year
+      const yearExpanseWithoutThePlate = monthlyCostWithoutThePlate * 12 * year
+      const yearEconomy = yearExpanseWithoutThePlate - yearExpanseWithThePlate
 
       returnTimeOnInvestmentList.push({
         year,
+        costWithThePlate: yearExpanseWithThePlate.toFixed(2),
+        costWithoutThePlate: yearExpanseWithoutThePlate.toFixed(2),
         economy: yearEconomy.toFixed(2),
-        expanse: yearExpanse.toFixed(2),
-        return: returnValue.toFixed(2),
       })
 
       if (year % 10 === 0 && year >= 10 && returnValue > 0) {

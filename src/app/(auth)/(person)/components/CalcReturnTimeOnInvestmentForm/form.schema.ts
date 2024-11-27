@@ -4,8 +4,8 @@ import { z } from 'zod'
 
 export const calcReturnTimeOnInvestmentFormFieldsSchema = z.object({
   initialExpanse: currencySchema,
-  mensalExpanse: currencySchema,
-  mensalEconomy: currencySchema,
+  monthlyCostWithoutThePlate: currencySchema,
+  monthlyCostWithThePlate: currencySchema,
 })
 
 export const calcReturnTimeOnInvestmentFormResolver = zodResolver(

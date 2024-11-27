@@ -25,7 +25,6 @@ export function CalcReturnTimeOnInvestmentForm() {
 
     const returnTimeOnInvestmentList: IReturnTimeOnInvestment[] = []
     let year = 1
-    const returnValue = 0
 
     while (year <= 100) {
       const yearExpanseWithThePlate =
@@ -40,7 +39,7 @@ export function CalcReturnTimeOnInvestmentForm() {
         economy: yearEconomy.toFixed(2),
       })
 
-      if (year % 10 === 0 && year >= 10 && returnValue > 0) {
+      if (year % 10 === 0 && yearEconomy > 0) {
         break
       }
 
@@ -49,7 +48,7 @@ export function CalcReturnTimeOnInvestmentForm() {
 
     setReturnTimeOnInvestmentList(returnTimeOnInvestmentList)
 
-    toast.success('Tempo de retorno calculado como sucesso')
+    toast.success('Tempo de retorno calculado com sucesso')
   }
 
   return (

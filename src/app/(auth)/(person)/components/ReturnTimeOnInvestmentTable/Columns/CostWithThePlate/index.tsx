@@ -5,7 +5,7 @@ import { ColumnDef } from '@tanstack/react-table'
 
 export const costWithThePlateColumn: ColumnDef<IReturnTimeOnInvestment> = {
   accessorKey: 'costWithThePlate',
-  meta: { name: 'Custo como a placa' },
+  meta: { name: 'Custo com a placa' },
   enableSorting: true,
   size: 400,
   header: (e) => <HeaderCell {...e} />,
